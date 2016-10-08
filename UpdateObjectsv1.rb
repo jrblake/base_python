@@ -90,9 +90,8 @@ puts "Is This Information Correct? (Y/N)"
 verification = gets.chomp
 print "\n"
 
-#Establish Counter + Piggybank
+#Establish Counter
 counter = 1
-piggybank = 0
 
 #Verification
 if verification.downcase == "yes" || verification.downcase == "y"
@@ -106,7 +105,6 @@ if verification.downcase == "yes" || verification.downcase == "y"
 			puts "#{counter}. (#{response.status}) - #{response.body}"
 			print "\n"
 			counter = counter + 1
-			piggybank = piggybank + 0.15
 		end
 	elsif objecttype.downcase == "contact" || objecttype.downcase == "c"
 		#RowExecution
@@ -118,7 +116,6 @@ if verification.downcase == "yes" || verification.downcase == "y"
 			puts "#{counter} - #{response.status} - #{response.body}"
 			print "\n"
 			counter = counter + 1
-			piggybank = piggybank + 0.15
 		end
 	elsif objecttype.downcase == "lead" || objecttype.downcase == "l"
 		#RowExecution
@@ -130,12 +127,10 @@ if verification.downcase == "yes" || verification.downcase == "y"
 			puts "#{counter}. (#{response.status}) - #{response.body}"
 			print "\n"
 			counter = counter + 1
-			piggybank = piggybank + 0.15
 		end
 	else
 		puts "Retry--Incorrect Data Input"
 	end
-	puts "You owe Jared $#{piggybank}"
 	print "\n"
 else
 	puts "Retry--Incorrect Data Input"
