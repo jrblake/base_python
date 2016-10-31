@@ -8,7 +8,7 @@ array =[]
 
 
   CSV.foreach("Opps.csv", :headers => true) do |row|
-      retrieve = `curl -u {{CapsuleID}}:x -H "Accept:application/json" https://adsupply.capsulecrm.com/api/party/#{row[0]}/history`
+      retrieve = `curl -u {{Capsule_ID}}:x -H "Accept:application/json" https://adsupply.capsulecrm.com/api/party/#{row[0]}/history`
       c_retrieve = JSON.parse(retrieve)
       rquery = c_retrieve['history']
       if rquery['@size'].to_i == 1
